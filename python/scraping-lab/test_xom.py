@@ -3,9 +3,8 @@ import yahoo_options_data
 
 computedJson = yahoo_options_data.contractAsJson("xom.dat")
 expectedJson = open("xom.json").read()
-expectedJson_changed = open("xom_change.json").read()
 
-if json.loads(computedJson) != json.loads(expectedJson) and json.loads(computedJson) != json.loads(expectedJson_changed):
+if json.loads(computedJson) != json.loads(expectedJson):
   print("Test failed!")
   print("Expected output:", expectedJson)
   print("Your output:", computedJson)
