@@ -1,3 +1,4 @@
+import os.path
 import compute_highest_affinity
 
 a = "a"
@@ -18,15 +19,15 @@ F = "F"
 G = "G"
 H = "H"
 
+site_list = [a, a, a, a, b, b, b, b, c, c, c, d, d, d, d, d]
+user_list = [B, D, E, F, A, B, C, F, B, D, E, A, B, C, D, F]
 
-site_list = [a,a,a,a,b,b,b,b,c,c,c,d,d,d,d,d]
-user_list = [B,D,E,F,A,B,C,F,B,D,E,A,B,C,D,F]
+time_list = range(0, 16)
 
-time_list = range(0,16)
-
-computed_result = compute_highest_affinity.highest_affinity(site_list, user_list, time_list)
+computed_result = compute_highest_affinity.highest_affinity(
+    site_list, user_list, time_list)
 expected_result = (b, d)
 
 assert computed_result == expected_result
-
-print("Successfully passed test4!")
+print(
+    "Successfully passed {}!".format(os.path.basename(__file__).split(".")[0]))
